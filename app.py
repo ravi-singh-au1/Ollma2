@@ -28,5 +28,13 @@ input_text = st.text_input("What question you have in mind?")
 llm= Ollama(model='gemma:2b')
 output_parser = StrOutputParser()
 chain = promt|llm|output_parser
-if input_text:
-    st.write(chain.invoke({'question':input_text}))
+import streamlit as st
+from requests.exceptions import ConnectionError
+
+try:
+    response = chain.invoke({'question': input_text})
+    st.write(response)
+except ConnectionError:
+    st.error("❌ Could not connect to Ollama server. Is it running?")
+
+
