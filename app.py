@@ -6,12 +6,12 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
 load_dotenv()
-os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
+# os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API_KEY')
 
 ## langsmith tracking
-os.environ['LANGCHAIN_API_KEY']= os.getenv('LANGCHAIN_API_KEY')
+os.environ['LANGCHAIN_API_KEY']= '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'
 os.environ['LANGCHAIN_TRACING_V2']='True'
-os.environ['LANGCHAIN_PROJECT']=os.getenv('LANGCHAIN_PROJECT')
+os.environ['LANGCHAIN_PROJECT']='GenAIAPPWithOPENAI'
 
 promt = ChatPromptTemplate.from_messages(
 [
